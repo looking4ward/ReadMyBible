@@ -10,6 +10,6 @@ app.get('/books/mp3/id', books.findMp3ById);
 
 
 
-
-app.listen(80);
+var port = process.env.PORT || 3000;
+app.listen(port);
 console.log('ReadMyBible server running...');
