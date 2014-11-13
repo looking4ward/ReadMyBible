@@ -319,7 +319,7 @@ function fnInitBooks(parent, iBookNumber) {
 	var port = Number(process.env.PORT || 3000);
 
 	var options = {
-	  host: 'readmybible.herokuapp.com',
+	  host: 'localhost',
 	  path: '/books/' + iBookNumber,
 	  port: port,
 	  headers: {'custom': 'ReadMyBible v2'}
