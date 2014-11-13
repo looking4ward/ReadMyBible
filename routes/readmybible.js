@@ -318,9 +318,9 @@ function fnInitBooks(parent, iBookNumber) {
 	//var http = require('http');
 
 	var options = {
-	  host: 'localhost',
+	  host: 'readmybible.herokuapp.com',
 	  path: '/books/' + iBookNumber,
-	  port: '3000',
+	  port: '80',
 	  headers: {'custom': 'ReadMyBible v2'}
 	};
 
@@ -390,7 +390,7 @@ exports.home = function(req, res) {
 		
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write('<script>function getBook(id) { alert(id); }</script>');
-	res.write('<h2>ReadMyBible v2</h2>');
+	res.write('<h2>ReadMyBible v0.0.1</h2>');
 	
        	console.info("Read biblebooks");
 	// prepare get call
