@@ -316,6 +316,7 @@ function fnInitBooks(parent, iBookNumber) {
 	console.info("fnInitBooks");
 	var sReturn = "";
 	//var http = require('http');
+	var port = Number(process.env.PORT || 3000);
 
 	var options = {
 	  host: 'readmybible.herokuapp.com',
