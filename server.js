@@ -1,7 +1,8 @@
 var express = require('express');
 books = require('./routes/readmybible');
+var cors = require('cors');
 var app = express();
-
+app.use(cors());
 
 app.get('/', books.home);
 app.get('/books/:id', books.findById);
