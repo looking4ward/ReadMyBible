@@ -187,6 +187,9 @@ exports.findById = function(req, res) {
 		//console.info('\n\nJSON response 1=' + jsonResult);
 		oResult = JSON.parse(jsonResult);
 		//res.send(jsonResult);
+		
+		//setting header Access-Control-Allow-Origin: *
+		res.header 'Access-Control-Allow-Origin', '*';	
 		res.send(oResult);
 	    })
 
