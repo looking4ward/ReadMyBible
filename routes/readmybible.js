@@ -47,19 +47,20 @@ function fnProcessData(html) {
 		iBookEnd = parseInt(sValueBookEnd.indexOf('<\/span>'));
 		iId = parseInt(sValue1.indexOf('value'));
 		iMb = parseInt(sValue2.indexOf('title'));
+		iMbEnd = parseInt(sValue2.indexOf('onclick'));
 		iPe = parseInt(sValue3.indexOf('&nbsp'));
 		iEnd = parseInt(sValue4.indexOf('<br>'));
 		
 		
 
 		if (iId > 0) {
-			sId = sValue1.slice(iId + 7, iId + 10);
-			sMb = sValue2.slice(iMb + 7, iMb + 11);
+			sId = sValue1.slice(iId + 7, iMb - 2);
+			sMb = sValue2.slice(iMb + 7, iMbEnd - 2);
 			sPe = sValue3.slice(iPe + 6, iEnd);
 			sJson = "{ \"id\" : \"" + sId + "\", \"mb\" : \"" + sMb + "\", \"book\" : \"" + sBook + "\", \"name\" : \"" + sPe + "\"}";
 			jResult.push(sJson);
-			//console.info('\n\n' + sId + "=" + sMb);
-			//console.info('\n\n' + sJson);
+			console.info('\n\n' + sId + "=" + sMb);
+			console.info('\n\n' + sJson);
 			jIndex++;
 		} else {
 			sBook = sValueBook.slice(iBook + 20, iBookEnd);
@@ -391,12 +392,12 @@ exports.home = function(req, res) {
 		
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write('<script>function getBook(id) { alert(id); }</script>');
-	res.write('<h2>ReadMyBible v0.0.1</h2>');
+	res.write('<h2>ReadMyBible v0.0.2</h2>');
 	
        	console.info("Read biblebooks");
 	// prepare get call
 	res.write('<h2>Initializing..</h2>');
-	var myBooks = fnInitBooks(res, '19');
+	var myBooks = fnInitBooks(res, '55');
 	console.info("returned to main routine");
 	
 	res.write('<h2>Kies een bijbelboek</h2>');
