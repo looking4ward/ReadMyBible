@@ -59,8 +59,8 @@ function fnProcessData(html) {
 			sPe = sValue3.slice(iPe + 6, iEnd);
 			sJson = "{ \"id\" : \"" + sId + "\", \"mb\" : \"" + sMb + "\", \"book\" : \"" + sBook + "\", \"name\" : \"" + sPe + "\"}";
 			jResult.push(sJson);
-			console.info('\n\n' + sId + "=" + sMb);
-			console.info('\n\n' + sJson);
+			//console.info('\n\n' + sId + "=" + sMb);
+			//console.info('\n\n' + sJson);
 			jIndex++;
 		} else {
 			sBook = sValueBook.slice(iBook + 20, iBookEnd);
@@ -174,6 +174,7 @@ exports.findById = function(req, res) {
 		jOutput = fnProcessData(sResponse);
  	        console.info('\n\nPOST completed');
 		console.info('\n\nResponse...' + jOutput.length);
+	
 		jsonResult = "[";
 		for(var i = 0; i < jOutput.length; i++){
 			//console.info('\n\nDisplay response ' + i);
@@ -184,11 +185,13 @@ exports.findById = function(req, res) {
 			}
 		}
 		jsonResult += "]";
-		//console.info('\n\nJSON response 1=' + jsonResult);
-		oResult = JSON.parse(jsonResult);
-		//res.send(jsonResult);
 		
-		res.send(oResult);
+		console.info('\n\nJSON response 1=' + jsonResult);
+		oResult = JSON.parse(jsonResult);
+		// return jsonp result
+		res.jsonp(oResult);
+		
+
 	    })
 
 	});
