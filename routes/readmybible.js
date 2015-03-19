@@ -300,8 +300,8 @@ exports.findMp3ById = function(req, res) {
 		jsonResult += "]";
 		//console.info('\n\nJSON response 1=' + jsonResult);
 		oResult = JSON.parse(jsonResult);
-		//res.send(jsonResult);
-		res.send(oResult);
+		// return jsonp result
+		res.jsonp(oResult);
 	    })
 
 	});
