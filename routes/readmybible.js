@@ -174,7 +174,7 @@ exports.findById = function(req, res) {
 		jOutput = fnProcessData(sResponse);
  	        console.info('\n\nPOST completed');
 		console.info('\n\nResponse...' + jOutput.length);
-		jsonResult = "[";
+		jsonResult = "jsonCallback([";
 		for(var i = 0; i < jOutput.length; i++){
 			//console.info('\n\nDisplay response ' + i);
 			if (i>0) {
@@ -183,10 +183,9 @@ exports.findById = function(req, res) {
 				jsonResult += jOutput[i].toString();	
 			}
 		}
-		jsonResult += "]";
+		jsonResult += "])";
 		//console.info('\n\nJSON response 1=' + jsonResult);
 		oResult = JSON.parse(jsonResult);
-		//res.send(jsonResult);
 		
 		res.send(oResult);
 	    })
@@ -285,7 +284,7 @@ exports.findMp3ById = function(req, res) {
 		jOutput = fnProcessMp3(sResponse, id);
  	        console.info('\n\nPOST completed');
 		console.info('\n\nResponse...' + jOutput.length);
-		jsonResult = "[";
+		jsonResult = "jsonCallback([";
 		for(var i = 0; i < jOutput.length; i++){
 			//console.info('\n\nDisplay response ' + i);
 			if (i>0) {
@@ -294,7 +293,7 @@ exports.findMp3ById = function(req, res) {
 				jsonResult += jOutput[i].toString();	
 			}
 		}
-		jsonResult += "]";
+		jsonResult += "])";
 		//console.info('\n\nJSON response 1=' + jsonResult);
 		oResult = JSON.parse(jsonResult);
 		//res.send(jsonResult);
