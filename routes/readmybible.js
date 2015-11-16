@@ -144,7 +144,7 @@ exports.findById = function(req, res) {
 	var optionspost = {
     		host : 'www.downloadbijbel.nl',
     		port : '80',
-		path : '/download/toon_perikopen.php',
+		path : '/toon_perikopen.php',
 	    	method : 'POST',
  	    	headers : postheaders
 	};
@@ -258,7 +258,7 @@ exports.findMp3ById = function(req, res) {
 	var optionspost = {
     		host : 'www.downloadbijbel.nl',
     		port : '80',
-		path : '/download/downloaden.php',
+		path : '/downloaden.php',
 	    	method : 'POST',
  	    	headers : postheaders
 	};
@@ -327,7 +327,7 @@ function fnInitBooks(parent, iBookNumber) {
 	  host: 'localhost',
 	  path: '/books/' + iBookNumber,
 	  port: port,
-	  headers: {'custom': 'ReadMyBible v2'}
+	  headers: {'custom': 'ReadMyBible v4'}
 	};
 
 	callback = function(response) {
@@ -396,7 +396,7 @@ exports.home = function(req, res) {
 		
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write('<script>function getBook(id) { alert(id); }</script>');
-	res.write('<h2>ReadMyBible v0.0.3</h2>');
+	res.write('<h2>ReadMyBible v0.0.4</h2>');
 	
        	console.info("Read biblebooks");
 	// prepare get call
